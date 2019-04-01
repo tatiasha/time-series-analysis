@@ -2,7 +2,9 @@ from os import listdir
 from os.path import isfile, join
 import pandas as pd
 import matplotlib.pyplot as plt
-from forecasting import statistical
+import forecasting.statistical as f_stat
+import outliers.statistical as o_stat
+import clustering.km as c_stat
 
 
 def get_files_names(path):
@@ -78,9 +80,10 @@ def main():
         print(data_.head())
 
     data_ = data_[:1000]
-    # plt.plot(data_[0].values, data_[1].values)
-    # plt.show()
-    statistical.ARIMA_model(data_)
+
+    f_stat.ARIMA_model(data_, plot=1, start_point=int(0.9*len(data_)), end_point=int(1.1*len(data_)))
+    o_stat.outlier_detection(data_)
+    c_stat.clustering_kmeans(data_)
 
 
 if __name__ == "__main__":
