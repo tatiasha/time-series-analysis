@@ -2,7 +2,7 @@
 from __future__ import print_function
 import numpy as np
 import matplotlib
-matplotlib.use('agg')
+# matplotlib.use('agg')
 import matplotlib.pyplot as plt
 import tensorflow as tf
 
@@ -41,7 +41,7 @@ def main(_):
     plt.xlabel('time_step')
     plt.ylabel('values')
     plt.legend(loc=4)
-    plt.savefig('predict_result.png')
+    plt.show()
 
 
 if __name__ == '__main__':
