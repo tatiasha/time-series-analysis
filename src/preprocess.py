@@ -87,4 +87,6 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    data = pd.read_csv("..//sample_data//sensor-1-2007-2017.csv", header=None)[:1000]
+    data.to_csv("..//tmp_data//sensor_data.csv", index=None, header=None)
+    # main()
