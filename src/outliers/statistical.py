@@ -2,9 +2,9 @@ from sklearn.covariance import EllipticEnvelope
 import matplotlib.pyplot as plt
 
 
-def outlier_detection(data):
+def outlier_detection(data, eps):
 
-    envelope = EllipticEnvelope(contamination=0.03)
+    envelope = EllipticEnvelope(contamination=eps)
     X_train = data[1].values.reshape(-1, 1)
     envelope.fit(X_train)
     data['deviation'] = envelope.decision_function(X_train)
@@ -16,5 +16,3 @@ def outlier_detection(data):
     ax.scatter(a[0], a[1], color='red', label='Anomaly')
     plt.legend()
     plt.show()
-
-    print(data.head())

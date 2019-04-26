@@ -5,9 +5,10 @@ from sklearn.metrics import mean_squared_error
 from sklearn import tree
 from keras import Sequential
 
-data = pd.read_csv("..//..//tmp_data//sensor_data.csv", header=None)[1].values
+M = 100000
+data = pd.read_csv("..//..//data//sens0-0.csv", header=None, delimiter=';')[1].values[:M]
 
-TRAIN_SIZE = 800
+TRAIN_SIZE = 85000
 TEST_SIZE = len(data) - TRAIN_SIZE
 X_SIZE = 20
 
